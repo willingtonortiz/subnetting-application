@@ -4,6 +4,7 @@ import { Subject } from "rxjs";
 import { Subnetter } from "../../logic/Subnetter";
 import { Network } from "../../logic/Network";
 import { IPV4 } from "../../logic/IPV4";
+import { NetworkInfoList } from "src/app/logic/NetworkInfoList";
 
 @Injectable({
 	providedIn: "root"
@@ -14,27 +15,36 @@ export class SubnettingService {
 	public networksObservable: Subject<Array<Network>>;
 
 	// Variables
-	private subnetter: Subnetter;
+	private ipv4: IPV4;
+	private networkInfoList: NetworkInfoList;
 
-	constructor() {
+	public constructor() {
 		//Subjects
 		this.addNetworkObservable = new Subject<boolean>();
 		this.networksObservable = new Subject<Array<Network>>();
 
 		// Variables
-		this.subnetter = new Subnetter();
+		this.networkInfoList = new NetworkInfoList();
 	}
 
 	public set Ipv4(value: IPV4) {
-		this.subnetter.Ipv4 = value;
+		this.ipv4 = value;
 	}
 
 	public addNetwork(networkInfo: NetworkInfo): void {
-		this.subnetter.AddNetwork(networkInfo);
+		this.networkInfoList.addNetwork(networkInfo);
+	}
+
+	public removeNetwork(network: Network): void {
+		this.networkInfoList.removeNetwork(network.NetworkInfo.uid);
+		this.executeSubnet();
 	}
 
 	public executeSubnet(): void {
-		const networks: Array<Network> = this.subnetter.Execute();
+		const networks: Array<Network> = Subnetter.Execute(
+			this.ipv4,
+			this.networkInfoList.networks
+		);
 
 		this.networksObservable.next(networks);
 	}

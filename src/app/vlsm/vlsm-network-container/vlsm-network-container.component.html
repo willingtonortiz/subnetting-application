@@ -1,12 +1,7 @@
 <div class="container">
 	<ng-container *ngFor="let network of networks">
 		<app-vlsm-network
-			[networkName]="network.NetworkInfo.Name"
-			[hosts]="network.NetworkInfo.Hosts"
-			[networkAddress]="network.Ipv4.Address"
-			[broadcastAddress]="network.Ipv4.GetBroadcastAddress().Address"
-			[firstUsableIp]="network.Ipv4.GetFirstUtil().Address"
-			[lastUsableIp]="network.Ipv4.GetLastUtil().Address"
+			[network] = network
 		></app-vlsm-network>
 	</ng-container>
 </div>

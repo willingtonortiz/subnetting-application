@@ -1,4 +1,5 @@
 export class NetworkInfo {
+	public uid: number;
 	public Name: string;
 	private _hosts: number;
 
@@ -14,6 +15,7 @@ export class NetworkInfo {
 	}
 
 	public constructor(name: string, hosts: number) {
+		this.uid = -1;
 		this.Name = name;
 		this.Hosts = hosts;
 	}

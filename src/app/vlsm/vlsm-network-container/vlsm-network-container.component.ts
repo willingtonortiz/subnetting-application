@@ -16,7 +16,6 @@ export class VlsmNetworkContainerComponent implements OnInit {
 		this.subnettingService.networksObservable.subscribe(
 			(data: Array<Network>) => {
 				this.networks = data;
-				// this.networks[0].NetworkInfo.
 			}
 		);
 	}

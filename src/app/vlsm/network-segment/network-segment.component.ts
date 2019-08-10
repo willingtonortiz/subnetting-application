@@ -40,10 +40,10 @@ export class NetworkSegmentComponent implements OnInit {
 				(ipv4 >= 0 && ipv4 <= 255)
 			) {
 				// Siempre se un nuevo segmento de red
-				const ip: IPV4 = new IPV4(
-					[ipv1, ipv2, ipv3, ipv4],
-					NetworkUtil.StringToArray(this.mask)
-				);
+				const ip: IPV4 = new IPV4({
+					address: [ipv1, ipv2, ipv3, ipv4],
+					mask: NetworkUtil.StringToArray(this.mask)
+				});
 				// Y se asigna a red
 				this.subnettingService.Ipv4 = ip;
 

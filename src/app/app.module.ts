@@ -16,6 +16,7 @@ import { VlsmModule } from "./vlsm/vlsm.module";
 		VlsmModule
 	],
 	providers: [],
-	bootstrap: [AppComponent]
+	bootstrap: [AppComponent],
+	exports: []
 })
 export class AppModule {}

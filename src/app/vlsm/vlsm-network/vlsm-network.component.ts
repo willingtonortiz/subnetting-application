@@ -1,26 +1,35 @@
-import { Component, OnInit, Input } from "@angular/core";
+import {
+	Component,
+	OnInit,
+	Input,
+	OnChanges,
+	SimpleChanges
+} from "@angular/core";
+import { Network } from "src/app/logic/Network";
+import { NetworkUtil } from "src/app/logic/NetworkUtil";
+import { SubnettingService } from "../services/subnetting.service";
 
 @Component({
 	selector: "app-vlsm-network",
 	templateUrl: "./vlsm-network.component.html",
 	styleUrls: ["./vlsm-network.component.scss"]
 })
-export class VlsmNetworkComponent implements OnInit {
-	@Input() public networkName: string = "";
-	@Input() public hosts: string = "";
-	@Input() public networkAddress: string = "";
-	@Input() public broadcastAddress: string = "";
-	@Input() public firstUsableIp: string = "";
-	@Input() public lastUsableIp: string = "";
+export class VlsmNetworkComponent implements OnChanges {
+	@Input() public network: Network;
 
-	// public networkName: string = "generico";
-	// public hosts: string = "generico";
-	// public networkAddress: string = "generico";
-	// public broadcastAddress: string = "generico";
-	// public firstUsableIp: string = "generico";
-	// public lastUsableIp: string = "generico";
+	public usableHosts: number;
 
-	constructor() {}
+	constructor(private subnettingService: SubnettingService) {}
 
-	ngOnInit() {}
+	// Detecta cuando el input cambia
+	public ngOnChanges(changes: SimpleChanges) {
+		this.usableHosts =
+			NetworkUtil.GetMinimunHosts(
+				changes.network.currentValue.NetworkInfo.Hosts
+			) - 2;
+	}
+
+	public deleteNetwork() {
+		this.subnettingService.removeNetwork(this.network);
+	}
 }

@@ -28,12 +28,12 @@ export class NetworkUtil {
 	}
 
 	public static GetTotalHosts(mask: Array<number>): number {
+		// Todo -> Validar que sea una máscara correcta
 		if (mask.length !== 4) {
-			// Todo -> Validar que sea una máscara correcta
-
 			throw new Error("Incorrect mask lenght");
 		}
 
+		// Copia de la máscara
 		let newMask: Array<number> = mask.slice().reverse();
 		let total: number = 1;
 
@@ -48,6 +48,10 @@ export class NetworkUtil {
 		}
 
 		return 0;
+	}
+
+	public static GetMinimunHosts(requiredHosts: number): number {
+		return Math.pow(2, Math.ceil(Math.log2(requiredHosts)));
 	}
 
 	public static GetProperMask(hosts: number): Array<number> {

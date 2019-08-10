@@ -2,19 +2,24 @@ export class IPV4 {
 	public Address: number[];
 	public Mask: number[];
 
-	public constructor(address: number[], mask: number[]) {
-		this.Address = address || null;
-		this.Mask = mask || null;
+	public constructor(data: { address: Array<number>; mask: Array<number> }) {
+		// public constructor(address: number[], mask: number[]) {
+		this.Address = data.address || null;
+		this.Mask = data.mask || null;
 	}
 
 	public static GetEmpty(): IPV4 {
-		return new IPV4([0, 0, 0, 0], [0, 0, 0, 0]);
+		// return new IPV4([0, 0, 0, 0], [0, 0, 0, 0]);
+		return new IPV4({
+			address: [0, 0, 0, 0],
+			mask: [0, 0, 0, 0]
+		});
 	}
 
 	public AddHosts(hosts: number): void {
-		let reminder = hosts;
-		let maxSize;
-		let total;
+		let reminder: number = hosts;
+		let maxSize: number;
+		let total: number;
 
 		for (let i = 3; i >= 0; --i) {
 			maxSize = 256;
@@ -30,27 +35,15 @@ export class IPV4 {
 		}
 	}
 
-	// public GetNetworkSegment(): IPV4 {
-	// 	let result: IPV4 = IPV4.GetEmpty();
-
-	// 	for (let i = 0; i < 4; ++i) {
-	// 		result.Address[i] = this._ipv4.Address[i] & this._ipv4.Mask[i];
-	// 	}
-
-	// 	// Copia de la máscara
-	// 	result.Mask = this._ipv4.Mask.slice();
-
-	// 	return result;
-	// }
-
 	public GetNetworkAddress(): IPV4 {
 		let result: IPV4 = IPV4.GetEmpty();
 
+		// Crear método que haga esto
 		for (let i = 0; i < 4; ++i) {
 			result.Address[i] = this.Address[i] & this.Mask[i];
 		}
 
-		// Cpia de la máscara
+		// Copia de la máscara
 		result.Mask = this.Mask.slice();
 
 		return result;
@@ -75,7 +68,7 @@ export class IPV4 {
 		return result;
 	}
 
-	public GetFirstUtil(): IPV4 {
+	public GetFirstUsable(): IPV4 {
 		let result: IPV4 = this.GetNetworkAddress();
 
 		result.Address[3]++;
@@ -83,7 +76,7 @@ export class IPV4 {
 		return result;
 	}
 
-	public GetLastUtil(): IPV4 {
+	public GetLastUsable(): IPV4 {
 		let result: IPV4 = this.GetBroadcastAddress();
 
 		result.Address[3]--;
@@ -91,17 +84,18 @@ export class IPV4 {
 		return result;
 	}
 
-	public IsValid(ipv4: IPV4): boolean {
+	public IsValid(): boolean {
 		if (
-			ipv4.Address === null ||
-			ipv4.Mask === null ||
-			ipv4.Address.length !== 4 ||
-			ipv4.Mask.length !== 4
+			this.Address === null ||
+			this.Mask === null ||
+			this.Address.length !== 4 ||
+			this.Mask.length !== 4
 		) {
 			return false;
 		}
 
-		// Todo
+		// Todo -> Implementar una validación más robusta
+		// La función debe estár en útiles
 
 		return true;
 	}
