@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { NetworkInfo } from "../logic/NetworkInfo";
+import { NetworkInfo } from "../../logic/NetworkInfo";
 import { SubnettingService } from "../services/subnetting.service";
-import { Observer } from "rxjs";
 
 @Component({
 	selector: "app-add-network",

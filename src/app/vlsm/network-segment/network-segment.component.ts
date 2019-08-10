@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { Subnetter } from "../logic/Subnetter";
-import { IPV4 } from "../logic/IPV4";
-import { NetworkUtil } from "../logic/NetworkUtil";
+import { Subnetter } from "../../logic/Subnetter";
+import { IPV4 } from "../../logic/IPV4";
+import { NetworkUtil } from "../../logic/NetworkUtil";
 import { SubnettingService } from "../services/subnetting.service";
 
 @Component({

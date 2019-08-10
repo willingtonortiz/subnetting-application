@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { NetworkInfo } from "../logic/NetworkInfo";
+import { NetworkInfo } from "../../logic/NetworkInfo";
 import { Subject } from "rxjs";
-import { Subnetter } from "../logic/Subnetter";
-import { Network } from "../logic/Network";
-import { IPV4 } from "../logic/IPV4";
+import { Subnetter } from "../../logic/Subnetter";
+import { Network } from "../../logic/Network";
+import { IPV4 } from "../../logic/IPV4";
 
 @Injectable({
 	providedIn: "root"

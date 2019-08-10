@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Network } from "../logic/Network";
+import { Network } from "../../logic/Network";
 import { SubnettingService } from "../services/subnetting.service";
 
 @Component({

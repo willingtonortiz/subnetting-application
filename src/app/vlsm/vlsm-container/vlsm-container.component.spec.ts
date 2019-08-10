@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VlsmComponent } from './vlsm.component';
+import { VlsmContainerComponent } from './vlsm-container.component';
 
-describe('VlsmComponent', () => {
-  let component: VlsmComponent;
-  let fixture: ComponentFixture<VlsmComponent>;
+describe('VlsmContainerComponent', () => {
+  let component: VlsmContainerComponent;
+  let fixture: ComponentFixture<VlsmContainerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VlsmComponent ]
+      declarations: [ VlsmContainerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VlsmComponent);
+    fixture = TestBed.createComponent(VlsmContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
