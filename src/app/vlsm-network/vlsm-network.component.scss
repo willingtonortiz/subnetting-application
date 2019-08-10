@@ -1,0 +1,41 @@
+.container {
+	position: relative;
+	padding: 16px;
+
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+
+	.close {
+		position: absolute;
+		top: 16px;
+		right: 16px;
+		border: 1px solid gray;
+		border-radius: 10px;
+		cursor: pointer;
+
+		padding: 3px 7px;
+
+		&:hover {
+			background-color: tomato;
+			transition: all 0.5s ease;
+		}
+	}
+
+	.forms {
+		margin-top: 16px;
+		display: flex;
+		flex-flow: row nowrap;
+
+		.labels label,
+		.variables label {
+			display: block;
+			font-size: 24px;
+			margin-bottom: 8px;
+		}
+
+		.variables {
+			margin-left: 16px;
+		}
+	}
+}

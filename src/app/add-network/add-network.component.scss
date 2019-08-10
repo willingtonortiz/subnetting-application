@@ -1,0 +1,39 @@
+.container {
+	border: 1px solid lightgray;
+	padding: 16px;
+
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+
+	.forms {
+		margin: 16px auto;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+
+		.labels label,
+		.inputs input {
+			display: block;
+			margin: 8px 0;
+			font-size: 24px;
+		}
+
+		.inputs {
+			width: 60%;
+			input {
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+
+	.center {
+		button {
+			padding: 10px;
+			font-size: 24px;
+			border: none;
+			border-radius: 5px;
+		}
+	}
+}

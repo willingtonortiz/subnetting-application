@@ -1,0 +1,66 @@
+<div class="container">
+	<div class="row">
+		<h2>Segmento de red</h2>
+	</div>
+	<div class="row">
+		<div class="title">
+			<h3>Dirección de red</h3>
+		</div>
+		<div class="inputs">
+			<input
+				maxlength="3"
+				type="text"
+				placeholder="0-255"
+				[(ngModel)]="ipv1"
+				(keyup)="validateIp()"
+			/>
+			<label>.</label>
+			<input
+				maxlength="3"
+				type="text"
+				placeholder="0-255"
+				[(ngModel)]="ipv2"
+				(keyup)="validateIp()"
+			/>
+			<label>.</label>
+			<input
+				maxlength="3"
+				type="text"
+				placeholder="0-255"
+				[(ngModel)]="ipv3"
+				(keyup)="validateIp()"
+			/>
+			<label>.</label>
+			<input
+				maxlength="3"
+				type="text"
+				placeholder="0-255"
+				[(ngModel)]="ipv4"
+				(keyup)="validateIp()"
+			/>
+		</div>
+	</div>
+	<div class="row">
+		<div class="title">
+			<h3>Máscara de red</h3>
+		</div>
+		<div class="inputs">
+			<select [(ngModel)]="mask" (click)="validateIp()">
+				<option value="255.255.240.0">255.255.240.0</option>
+				<option value="255.255.248.0">255.255.248.0</option>
+				<option value="255.255.252.0">255.255.252.0</option>
+				<option value="255.255.254.0">255.255.254.0</option>
+				<option value="255.255.255.0">255.255.255.0</option>
+				<option value="255.255.255.128">255.255.255.128</option>
+				<option value="255.255.255.192">255.255.255.192</option>
+				<option value="255.255.255.224">255.255.255.224</option>
+				<option value="255.255.255.240">255.255.255.240</option>
+				<option value="255.255.255.248">255.255.255.248</option>
+				<option value="255.255.255.252">255.255.255.252</option>
+			</select>
+		</div>
+	</div>
+	<div class="row" *ngIf="showHosts">
+		<p>Cantidad de hosts disponibles: {{ numberOfHosts }}</p>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<ng-container *ngIf="showComponent">
+	<div class="container">
+		<div class="center">
+			<h2>Agregar subredes</h2>
+		</div>
+
+		<div class="forms">
+			<div class="labels">
+				<label>Nombre</label>
+				<label>Hosts</label>
+			</div>
+
+			<div class="inputs">
+				<input
+					[(ngModel)]="name"
+					(keyup)="validateInputs()"
+					type="text"
+					placeholder="Nombre de la red"
+				/>
+				<input
+					[(ngModel)]="hosts"
+					(keyup)="validateInputs()"
+					type="text"
+					placeholder="Cantidad de hosts"
+				/>
+			</div>
+		</div>
+
+		<div class="center" *ngIf="showButton">
+			<button (click)="addNetwork()">Agregar</button>
+		</div>
+	</div>
+</ng-container>
