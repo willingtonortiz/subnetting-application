@@ -5,25 +5,25 @@
 		</div>
 
 		<div class="forms">
-			<div class="labels">
-				<label>Nombre</label>
-				<label>Hosts</label>
+			<div class="field">
+				<div class="labels">
+					<label>Nombre</label>
+				</div>
+				<div class="inputs">
+					<input [(ngModel)]="name" (keyup)="validateInputs()" type="text" placeholder="Nombre de la red" />
+				</div>
+			</div>
+			<div class="field">
+				<div class="labels">
+
+					<label>Hosts</label>
+				</div>
+				<div class="inputs">
+					<input [(ngModel)]="hosts" (keyup)="validateInputs()" type="text" placeholder="Cantidad de hosts" />
+				</div>
+
 			</div>
 
-			<div class="inputs">
-				<input
-					[(ngModel)]="name"
-					(keyup)="validateInputs()"
-					type="text"
-					placeholder="Nombre de la red"
-				/>
-				<input
-					[(ngModel)]="hosts"
-					(keyup)="validateInputs()"
-					type="text"
-					placeholder="Cantidad de hosts"
-				/>
-			</div>
 		</div>
 
 		<div class="center" *ngIf="showButton">

@@ -1,11 +1,12 @@
 .container {
-	padding: 16px;
-	border: 1px solid lightgray;
+	padding: 1.25em 1.75em ;
+	margin: 2em 1.25em;
 	border-radius: 5px;
-
+	box-shadow: 0 18px 24px 12px rgba(0,0,0,.06);
 	display: flex;
 	flex-flow: column wrap;
 	align-items: center;
+	width: fit-content;
 
 	.row {
 		// border: 1px solid red;
@@ -13,33 +14,48 @@
 		width: 100%;
 
 		display: flex;
-		flex-flow: row nowrap;
+		flex-flow: column nowrap;
 		justify-content: space-between;
-		align-items: center;
+		align-items: flex-start;
 		font-size: 24px;
 
 		h2 {
 			font-size: 32px;
 			font-weight: bold;
+			margin-bottom: .5em;
 		}
 
 		.title {
 			h3 {
-				font-weight: 100;
+
+				color: #667BCE;
+
 			}
 		}
-		.inputs {
+
+		.inputs-select{
+			width: 100%;
+			select{
+				padding: .75em;
+				width: 100%;
+				font-size: 20px;
+			}
+		}
+		.inputs-select,.inputs-segment{
+			margin-top: .75em;
+		}
+		.inputs-segment {
 			// border: 1px solid red;
 			display: flex;
 			flex-flow: row nowrap;
-			width: 60%;
 
 			input {
-				width: 23%;
+				width: 33%;
 				padding: 5px 0;
 				border: 1px solid lightgray;
 				font-size: 24px;
 				text-align: center;
+				border-radius: 4px;
 			}
 			label {
 				margin: 0 4px;
